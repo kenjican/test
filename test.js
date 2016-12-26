@@ -4,7 +4,8 @@ var db = new mongodb.Db('VM7000',server,{safe:true});
 
 var tmp1={'date':Date.now()};
 
-db.open(function(err,db){
+db.open(function(err,db){});
+/*
 	if(!err){
 		db.collection('vms',{safe:true},function(err,collection){
 			collection.insert(tmp1,{safe:true},function(err,result){
@@ -12,3 +13,9 @@ db.open(function(err,db){
 			});
 		});
 	}});
+*/
+
+var col = db.collection('vms');
+var ins = col.insert({'date':Date.now()});
+
+	setInterval(db.open,5000);
