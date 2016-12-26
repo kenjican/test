@@ -1,3 +1,12 @@
+var fs = require('fs');
+var obj = {table:[]};
+fs.exists('config.json',function(exists){
+	if(exists){
+		console.log("config.json exists");
+		fs.readFile('config.json',function(err,data){
+			console.log(JSON.parse(data));
+		});}});
+
 var express = require('express');
 var app = express();
 var router = express.Router();
@@ -19,7 +28,7 @@ var VM7006 = mongoose.Schema({
 var vm = mongoose.model('vm',VM7006);
 
 var vm1 = new vm({
-	name:'記錄1',
+	name:'記錄5',
 	pv:[-100.03,100.54,-43.48,0.34,50.3]
 });
 
